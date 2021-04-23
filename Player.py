@@ -16,6 +16,9 @@ class Player:
   def win(self, cards):
     self.deck.extend(cards)
 
+  def isLose(self):
+    return len(self.deck) == 0
+
 if __name__=='__main__':
   deck = Deck()
   deck.shuffle()
