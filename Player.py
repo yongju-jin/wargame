@@ -16,6 +16,12 @@ class Player:
   def win(self, cards):
     self.deck.extend(cards)
 
+  def draw(self):
+    drawCards = []
+    for item in range(3):
+      drawCards.append(self.pop())
+    return drawCards
+
   def isLose(self):
     return len(self.deck) == 0
 
@@ -32,6 +38,9 @@ if __name__=='__main__':
   player.win(appendList)
   print(player.deck[-2])
   print(player.deck[-1])
+  print(len(player.deck))
+  print(player.draw())
+  print(len(player.deck))
   try:
     wrongDeck = [Card(CardSuit.Clover, CardRank.Two)]
     wrongPlayer = Player(wrongDeck)
