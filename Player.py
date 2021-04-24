@@ -18,12 +18,16 @@ class Player:
 
   def draw(self):
     drawCards = []
-    for item in range(3):
+    drawCardCount = min(3, len(self.deck))
+    for item in range(drawCardCount):
       drawCards.append(self.pop())
     return drawCards
 
   def isLose(self):
     return len(self.deck) == 0
+
+  def __str__(self) -> str:
+    return f'Player has {len(self.deck)} cards'
 
 if __name__=='__main__':
   deck = Deck()
